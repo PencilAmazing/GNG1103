@@ -1,10 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
+using System.Linq;
 using TMPro;
+using UnityEditor.SearchService;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.UI;
 
 public class TextTypewriter : MonoBehaviour
 {
@@ -19,6 +17,7 @@ public class TextTypewriter : MonoBehaviour
 	private string finalString = "";
 
 	public string[] DialogueScript;
+	public string[] AlternateDialogueScript;
 	public int DialogIndex { get; private set; }
 
 	WaitForSeconds _delayBetweenCharactersYieldInstruction;
@@ -26,10 +25,17 @@ public class TextTypewriter : MonoBehaviour
 	public void Start()
 	{
 		if (SecondsDelay <= 0) {
+			SecondsDelay = 0.1f;
 			Debug.LogError("Seconds delay must be positive");
 		}
 		if (TextGUI == null) {
 			Debug.LogError("TextGUI reference must not be null");
+		}
+		Debug.Assert(DialogueScript.Length == AlternateDialogueScript.Length, "Dialog and alternate dialog do not match up!");
+		// Replace dialog reference
+		if (TypewriterLanguageSettings.IsAlternate()) {
+			DialogueScript = AlternateDialogueScript;
+			
 		}
 	}
 
@@ -48,7 +54,7 @@ public class TextTypewriter : MonoBehaviour
 			Debug.LogError("TextGUI reference must not be null");
 			return;
 		}
-		if(FullUICanvas) FullUICanvas.enabled = true; // Activate gameObject automatically
+		if (FullUICanvas) FullUICanvas.enabled = true; // Activate gameObject automatically
 
 		if (SecondsDelay <= 0) SecondsDelay = 0.1f;
 		finalString = DialogueScript[DialogIndex];
