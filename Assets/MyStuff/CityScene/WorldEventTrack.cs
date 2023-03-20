@@ -11,7 +11,6 @@ public enum TrackUntil
 {
 	WaitForTrigger,
 	Seconds,
-	Pings
 }
 
 [System.Serializable]
@@ -37,4 +36,5 @@ public class WorldEventTrack : PlayableAsset
 		behaviour.PauseTime = PauseTime;
 		return playable;
 	}
+
 }

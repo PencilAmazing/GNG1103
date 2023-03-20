@@ -35,14 +35,11 @@ public class WorldEventBehaviour : PlayableBehaviour
 			}
 		}
 		buffer = 0;
-		var root = playable.GetGraph().GetRootPlayable(0);
-		root.SetSpeed(System.Math.Abs(root.GetSpeed()));
 	}
 
 	// Called when the owning graph stops playing
 	public override void OnGraphStop(Playable playable)
 	{
-
 	}
 
 	// Called when the state of the playable is set to Play
@@ -59,38 +56,20 @@ public class WorldEventBehaviour : PlayableBehaviour
 
 		if ((info.effectivePlayState == PlayState.Paused && count > duration) || playable.GetGraph().GetRootPlayable(0).IsDone()) {
 			// Execute your finishing logic here:
-			if (function == TrackFunction.PingPongForTime && until == TrackUntil.Pings) {
-				NumberPings += 1;
-				if (NumberPings / 2 > pings) {
-					var root = playable.GetGraph().GetRootPlayable(0);
-					root.SetSpeed(-root.GetSpeed());
-				}
-			} else if (function == TrackFunction.PingPongForTime && until == TrackUntil.WaitForTrigger) {
-				NumberPings += 1;
-				if (NumberPings % 2 == 0 && !TriggerCollider.GetComponent<Spaghetti>().HasCollided) {
-					var root = playable.GetGraph().GetRootPlayable(0);
-					root.SetSpeed(-root.GetSpeed());
+			if (function == TrackFunction.PingPongForTime && until == TrackUntil.WaitForTrigger) {
+				// if we're not ponging and we didnt collide yet
+				if (NumberPings / 2 < pings && !TriggerCollider.GetComponent<Spaghetti>().HasCollided) {
+					NumberPings += 1;
+					Debug.Log("Ping");
+					ReverseSpeed(playable);
 				}
 			}
-		}
-
-		if (function == TrackFunction.PingPongForTime) {
-			if (until == TrackUntil.Seconds) {
-				buffer += System.Math.Abs(info.deltaTime);
-				if (buffer < PauseTime) {
-					var root = playable.GetGraph().GetRootPlayable(0);
-					root.SetSpeed(-root.GetSpeed());
-				}
-				Debug.Log(buffer);
-			} else if (until == TrackUntil.WaitForTrigger) {
+		} else {
+			// if we already pinged once, repong
+			if (function == TrackFunction.PingPongForTime && until == TrackUntil.WaitForTrigger && NumberPings > 0) {
 				NumberPings += 1;
-				var root = playable.GetGraph().GetRootPlayable(0);
-				root.SetSpeed(-root.GetSpeed());
-			} else if (until == TrackUntil.Pings) {
-				NumberPings += 1;
-				var root = playable.GetGraph().GetRootPlayable(0);
-				root.SetSpeed(-root.GetSpeed());
-				Debug.Log(NumberPings);
+				ReverseSpeed(playable);
+				Debug.Log("Pong");
 			}
 		}
 	}
@@ -123,5 +102,10 @@ public class WorldEventBehaviour : PlayableBehaviour
 	{
 		var root = playable.GetGraph().GetRootPlayable(0);
 		root.SetTime(root.GetPreviousTime());
+	}
+	private void ReverseSpeed(Playable playable)
+	{
+		var root = playable.GetGraph().GetRootPlayable(0);
+		root.SetSpeed(-root.GetSpeed());
 	}
 }
