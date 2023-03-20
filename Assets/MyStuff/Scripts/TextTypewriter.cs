@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Linq;
 using TMPro;
-using UnityEditor.SearchService;
 using UnityEngine;
 
 public class TextTypewriter : MonoBehaviour
