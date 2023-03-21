@@ -5,7 +5,6 @@ using UnityEngine;
 public class TextTypewriter : MonoBehaviour
 {
 	[field: SerializeField]
-	[field: Min(0.1f)]
 	public float SecondsDelay { get; set; }
 	[field: SerializeField]
 	public TextMeshProUGUI TextGUI { get; set; }
@@ -14,7 +13,9 @@ public class TextTypewriter : MonoBehaviour
 
 	private string finalString = "";
 
+	[TextArea]
 	public string[] DialogueScript;
+	[TextArea]
 	public string[] AlternateDialogueScript;
 	public int DialogIndex { get; private set; }
 

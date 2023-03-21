@@ -58,9 +58,9 @@ public class WorldEventBehaviour : PlayableBehaviour
 			// Execute your finishing logic here:
 			if (function == TrackFunction.PingPongForTime && until == TrackUntil.WaitForTrigger) {
 				// if we're not ponging and we didnt collide yet
-				if (NumberPings / 2 < pings && !TriggerCollider.GetComponent<Spaghetti>().HasCollided) {
+				if (NumberPings / 2 < pings || !TriggerCollider.GetComponent<Spaghetti>().HasCollided) {
 					NumberPings += 1;
-					Debug.Log("Ping");
+					//Debug.Log("Ping");
 					ReverseSpeed(playable);
 				}
 			}
@@ -69,7 +69,7 @@ public class WorldEventBehaviour : PlayableBehaviour
 			if (function == TrackFunction.PingPongForTime && until == TrackUntil.WaitForTrigger && NumberPings > 0) {
 				NumberPings += 1;
 				ReverseSpeed(playable);
-				Debug.Log("Pong");
+				//Debug.Log("Pong");
 			}
 		}
 	}
