@@ -19,6 +19,8 @@ public class TextTypewriter : MonoBehaviour
 	public string[] AlternateDialogueScript;
 	public int DialogIndex { get; private set; }
 
+	public bool IsDone { get; private set; }
+
 	WaitForSeconds _delayBetweenCharactersYieldInstruction;
 
 	public void Start()
@@ -56,9 +58,12 @@ public class TextTypewriter : MonoBehaviour
 		if (FullUICanvas) FullUICanvas.enabled = true; // Activate gameObject automatically
 
 		if (SecondsDelay <= 0) SecondsDelay = 0.1f;
-		finalString = DialogueScript[DialogIndex];
-		DialogIndex = (DialogIndex + 1) % DialogueScript.Length;
+
+		var script = TypewriterLanguageSettings.IsAlternate() ? AlternateDialogueScript : DialogueScript;
+		finalString = script[DialogIndex];
+		DialogIndex = (DialogIndex + 1) % script.Length;
 		StopAllCoroutines(); // Cancel last run
+		IsDone = false;
 		StartCoroutine(TypeWriterCoroutine(TextGUI, finalString, SecondsDelay));
 	}
 
@@ -73,6 +78,6 @@ public class TextTypewriter : MonoBehaviour
 			// We wait x seconds between characters before displaying them
 			yield return _delayBetweenCharactersYieldInstruction;
 		}
-
+		IsDone = true;
 	}
 }

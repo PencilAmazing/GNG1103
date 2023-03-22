@@ -12,9 +12,6 @@ EditorBuildSettings:
     path: Assets/MyStuff/Scenes/DestroyedCity.unity
     guid: 75f458db5d684d148a734af143f1a2f9
   - enabled: 1
-    path: Assets/MyStuff/Scenes/ThirdScene.unity
-    guid: 3239d3079bb604148849c9ceecfaac60
-  - enabled: 1
     path: Assets/MyStuff/Scenes/MessageScene.unity
     guid: 073d5478c77bb8e479b619ce93afa8d5
   m_configObjects:
