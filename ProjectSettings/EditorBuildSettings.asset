@@ -14,6 +14,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/MyStuff/Scenes/MessageScene.unity
     guid: 073d5478c77bb8e479b619ce93afa8d5
+  - enabled: 1
+    path: Assets/MyStuff/Scenes/CityScene.unity
+    guid: 75b87e67ebab56d42a28c975ae40ca97
+  - enabled: 1
+    path: Assets/MyStuff/Scenes/ExplanationScene.unity
+    guid: d933bbefd909b0f449cb7ac1a3c2ab12
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bfa1182bd221b4ca89619141f66f1260,
       type: 2}

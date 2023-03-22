@@ -463,4 +463,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31c93c92f136a4441bdb93289f763cda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InvokeOnStateExit: 0
+  InvokeOnStateExit: 1

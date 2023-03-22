@@ -185,6 +185,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3480699329000672020, guid: ef3c840007f2c3c40a21d566d0b2619a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.07357953
+      objectReference: {fileID: 0}
+    - target: {fileID: -3480699329000672020, guid: ef3c840007f2c3c40a21d566d0b2619a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.05818876
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ef3c840007f2c3c40a21d566d0b2619a,
         type: 3}
       propertyPath: m_Name
@@ -769,7 +779,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 224265672}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.298, y: 0.572, z: 50.736}
+  m_LocalPosition: {x: -6.286, y: 0.572, z: 49.655}
   m_LocalScale: {x: 0.11388, y: 0.11388, z: 0.11388}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1569,16 +1579,16 @@ MonoBehaviour:
   OnStateExitCallback:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1271143584}
-        m_TargetAssemblyTypeName: TextTypewriter, Assembly-CSharp
-        m_MethodName: NextLine
-        m_Mode: 1
+      - m_Target: {fileID: 1271143589}
+        m_TargetAssemblyTypeName: SwitchScene, Assembly-CSharp
+        m_MethodName: FadeSpriteInAndSwitchScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: GetUpTalk
+          m_StringArgument: CityScene
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &541810160
@@ -3144,11 +3154,16 @@ MonoBehaviour:
   <TextGUI>k__BackingField: {fileID: 2007286298}
   FullUICanvas: {fileID: 468455256}
   DialogueScript:
-  - Goofy looking place, man...
-  - Dude, where's my car?
+  - Hey you, come over here!
   - 
-  - This is hopeless... As if they simply switched sides...
-  AlternateDialogueScript: []
+  - It's the autonomous weapons, they simply switched sides!
+  - They started attacking our own people, the machines simply stopped responding
+    to us.
+  AlternateDialogueScript:
+  - 
+  - 
+  - 
+  - 
 --- !u!114 &1271143585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5060,7 +5075,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2114207485}
   m_LocalRotation: {x: -0, y: -0.05570641, z: -0, w: 0.99844724}
-  m_LocalPosition: {x: -7.760918, y: 0.836, z: 51.08152}
+  m_LocalPosition: {x: -7.760918, y: 0.912, z: 51.08152}
   m_LocalScale: {x: 1, y: 0.69805, z: 3.0016694}
   m_ConstrainProportionsScale: 0
   m_Children: []

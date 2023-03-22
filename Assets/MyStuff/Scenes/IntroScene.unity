@@ -1826,7 +1826,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -14.9, y: -33}
+  m_AnchoredPosition: {x: -14.899994, y: -33}
   m_SizeDelta: {x: -66.435005, y: -216.75002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &422908987
@@ -7164,7 +7164,19 @@ MonoBehaviour:
         m_CallState: 2
   onHeldUpdate:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1274018038}
+        m_TargetAssemblyTypeName: UnityEngine.Rigidbody, UnityEngine
+        m_MethodName: set_isKinematic
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   interactable: {fileID: 0}
 --- !u!114 &1274018042
 MonoBehaviour:
@@ -8837,11 +8849,12 @@ MonoBehaviour:
   DialogueScript:
   - The enemy is surrounding us!
   - Colonel, the situation is desperate.
-  - We can't afford to lose this position, we need to push them back!
+  - We can't afford to lose this position, we need an autonomous weapon to help us!
   AlternateDialogueScript:
   - L'ennemi nous entoure!
   - "Colonel, la situation est d\xE9sesp\xE9r\xE9e"
-  - Nous ne pouvons pas nous permettre de perdre cette position, il faut les repousser!
+  - Nous ne pouvons pas nous permettre de perdre cette position, nous avons besoin
+    d'une arme autonome !
 --- !u!114 &1487248029
 MonoBehaviour:
   m_ObjectHideFlags: 0
