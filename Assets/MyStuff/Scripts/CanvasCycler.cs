@@ -12,6 +12,7 @@ public class CanvasCycler : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
+
 		// Disable all except first canvas
 		DisableAllExcept(0);
 	}
@@ -57,10 +58,8 @@ public class CanvasCycler : MonoBehaviour
 			// show last screen
 			DisableAllExcept(2);
 			index += 1;
-		}
-
-		// Did we show all lines in script?
-		if (index >= Typewriter.DialogueScript.Length) {
+		} else {
+			//Did we show all lines in script?
 			// End of cycle, call scene transition;
 			OnCycleEnd.Invoke();
 			return;
