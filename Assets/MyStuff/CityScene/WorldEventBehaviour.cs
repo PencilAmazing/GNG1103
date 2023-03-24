@@ -25,6 +25,7 @@ public class WorldEventBehaviour : PlayableBehaviour
 	public Collider TriggerCollider;
 	public int pings;
 	int NumberPings = 0;
+	public bool IgnoreTrigger;
 
 	// Called when the owning graph starts playing
 	public override void OnGraphStart(Playable playable)
@@ -58,7 +59,7 @@ public class WorldEventBehaviour : PlayableBehaviour
 			// Execute your finishing logic here:
 			if (function == TrackFunction.PingPongForTime && until == TrackUntil.WaitForTrigger) {
 				// if we're not ponging and we didnt collide yet
-				if (NumberPings / 2 < pings || !TriggerCollider.GetComponent<Spaghetti>().HasCollided) {
+				if (NumberPings / 2 < pings || !HasCollided()) {
 					NumberPings += 1;
 					//Debug.Log("Ping");
 					ReverseSpeed(playable);
@@ -80,7 +81,7 @@ public class WorldEventBehaviour : PlayableBehaviour
 		if (function == TrackFunction.SimplePause) {
 			if (until == TrackUntil.Seconds) {
 				Until(playable);
-			} else if (until == TrackUntil.WaitForTrigger && !TriggerCollider.GetComponent<Spaghetti>().HasCollided) {
+			} else if (until == TrackUntil.WaitForTrigger && !HasCollided()) {
 				SkipFrame(playable);
 			}
 		}
@@ -93,7 +94,7 @@ public class WorldEventBehaviour : PlayableBehaviour
 
 	private void Until(Playable playable)
 	{
-		if (buffer <= PauseTime) {
+		if ((buffer <= PauseTime)) {
 			buffer += Time.deltaTime; // Global delta because we're paused
 			SkipFrame(playable);
 		}
@@ -107,5 +108,9 @@ public class WorldEventBehaviour : PlayableBehaviour
 	{
 		var root = playable.GetGraph().GetRootPlayable(0);
 		root.SetSpeed(-root.GetSpeed());
+	}
+	private bool HasCollided()
+	{
+		return IgnoreTrigger || (TriggerCollider.GetComponent<Spaghetti>() && TriggerCollider.GetComponent<Spaghetti>().HasCollided);
 	}
 }

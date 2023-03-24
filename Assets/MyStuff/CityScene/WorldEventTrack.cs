@@ -23,6 +23,7 @@ public class WorldEventTrack : PlayableAsset
 	[Min(1)]
 	public int pings;
 	public ExposedReference<Collider> TriggerCollider;
+	public bool IgnoreTrigger;
 
 	// Factory method that generates a playable based on this asset
 	public override Playable CreatePlayable(PlayableGraph graph, GameObject go)
@@ -34,6 +35,7 @@ public class WorldEventTrack : PlayableAsset
 		behaviour.pings = pings;
 		behaviour.TriggerCollider = TriggerCollider.Resolve(graph.GetResolver());
 		behaviour.PauseTime = PauseTime;
+		behaviour.IgnoreTrigger = IgnoreTrigger;
 		return playable;
 	}
 
