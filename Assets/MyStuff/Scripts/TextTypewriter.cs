@@ -67,6 +67,15 @@ public class TextTypewriter : MonoBehaviour
 		StartCoroutine(TypeWriterCoroutine(TextGUI, finalString, SecondsDelay));
 	}
 
+	public void SetCanvasActive(bool active)
+	{
+		if(FullUICanvas) {
+			FullUICanvas.enabled = active;
+		} else {
+			Debug.Log("Subtitle canvas is null, cannot change activity");
+		}
+	}
+
 	IEnumerator TypeWriterCoroutine(TMP_Text textComponent, string stringToDisplay, float delayBetweenCharacters)
 	{
 		// Cache the yield instruction for GC optimization
