@@ -7,14 +7,8 @@ public class CameraShake : MonoBehaviour
 	// if null.
 	public Transform camTransform;
 
-	// How long the object should shake for.
-	public float shakeDuration = 0f;
-
-	// Amplitude of the shake. A larger value shakes the camera harder.
-	public float shakeAmount = 0.7f;
-	public float decreaseFactor = 1.0f;
-
-	Vector3 originalPos;
+	public Vector3 magnitude = new Vector3(0.5f, 0.5f, 0.5f);
+	public float wavelength = 0.5f;
 
 	void Awake()
 	{
@@ -23,20 +17,29 @@ public class CameraShake : MonoBehaviour
 		}
 	}
 
-	void OnEnable()
+	public void DoShake(float duration)
 	{
-		originalPos = camTransform.localPosition;
+		StopAllCoroutines();
+		StartCoroutine(ShakeCoroutine(this.magnitude, duration, this.wavelength));
 	}
-
-	void Update()
+	private IEnumerator ShakeCoroutine(Vector3 magnitude, float duration, float wavelength)
 	{
-		if (shakeDuration > 0) {
-			camTransform.localPosition = originalPos + Random.insideUnitSphere * shakeAmount;
+		Vector3 startPos = camTransform.localPosition;
+		float endTime = Time.time + duration;
+		float currentX = 0;
 
-			shakeDuration -= Time.deltaTime * decreaseFactor;
-		} else {
-			shakeDuration = 0f;
-			camTransform.localPosition = originalPos;
+		while (Time.time < endTime) {
+			Vector3 shakeAmount = new Vector3(
+				Mathf.PerlinNoise(currentX, 0) - .5f,
+				Mathf.PerlinNoise(currentX, 7) - .5f,
+				Mathf.PerlinNoise(currentX, 19) - .5f
+			);
+
+			camTransform.localPosition = Vector3.Scale(magnitude, shakeAmount) + startPos;
+			currentX += wavelength;
+			yield return null;
 		}
+
+		camTransform.localPosition = startPos;
 	}
 }

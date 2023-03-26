@@ -1905,7 +1905,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: f3878ef94022a6f459f18f2e12cd6813, type: 3}
       propertyPath: m_Name
-      value: Bench_A
+      value: VisionMarker
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f3878ef94022a6f459f18f2e12cd6813, type: 3}
       propertyPath: m_RootOrder
@@ -1969,6 +1969,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3878ef94022a6f459f18f2e12cd6813, type: 3}
+--- !u!23 &353563763 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2300000, guid: f3878ef94022a6f459f18f2e12cd6813,
+    type: 3}
+  m_PrefabInstance: {fileID: 353563762}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &414503730
 Mesh:
   m_ObjectHideFlags: 0
@@ -8109,6 +8115,8 @@ GameObject:
   - component: {fileID: 1578720469}
   - component: {fileID: 1578720470}
   - component: {fileID: 1578720471}
+  - component: {fileID: 1578720472}
+  - component: {fileID: 1578720473}
   m_Layer: 0
   m_Name: HiddenPlayer
   m_TagString: MainCamera
@@ -8236,6 +8244,7 @@ MonoBehaviour:
     m_Signals:
     - {fileID: 11400000, guid: e252bd50617ece64fb63987bbcd5db03, type: 2}
     - {fileID: 11400000, guid: 4428ba23acaae63418484d3b54ada2fc, type: 2}
+    - {fileID: 11400000, guid: 712105ce9741f9f4aa2bd2a93577dcb9, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -8289,6 +8298,20 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1578720472}
+          m_TargetAssemblyTypeName: CameraShake, Assembly-CSharp
+          m_MethodName: DoShake
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0.3
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!95 &1578720470
 Animator:
   serializedVersion: 5
@@ -8324,6 +8347,49 @@ MonoBehaviour:
   FadeSprite: {fileID: 811837525}
   LookForIncompleteTransition: 1
   FadeDurationSeconds: 3
+--- !u!114 &1578720472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578720464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a70fb01294952204db9992387a2ebe36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camTransform: {fileID: 2135172427}
+  magnitude: {x: 0.5, y: 0.5, z: 0.5}
+  wavelength: 0.5
+--- !u!114 &1578720473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578720464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf4e114c390e514684e5e62a2970062, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsVisible: {fileID: 353563763}
+  DoOnVisible:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1578720468}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1001 &1609034787
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8333,7 +8399,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1004403150051996, guid: d0942da8e0756d64fa0dc5f970badb08, type: 3}
       propertyPath: m_Name
-      value: rus_build_5et_06
+      value: ld_5et_06_5et_06
       objectReference: {fileID: 0}
     - target: {fileID: 4782874753337956, guid: d0942da8e0756d64fa0dc5f970badb08, type: 3}
       propertyPath: m_RootOrder
@@ -11337,9 +11403,9 @@ MonoBehaviour:
     m_Events:
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1578720468}
-          m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-          m_MethodName: set_enabled
+        - m_Target: {fileID: 1578720473}
+          m_TargetAssemblyTypeName: WaitUntilVisible, Assembly-CSharp
+          m_MethodName: set_AttemptExecution
           m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
