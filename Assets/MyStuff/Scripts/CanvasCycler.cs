@@ -84,6 +84,7 @@ public class CanvasCycler : MonoBehaviour
 		} else if (index == Typewriter.DialogueScript.Length) {
 			// show last screen
 			DisableAllExcept(2);
+			ResumeAudio(); // Play last audio track
 			index += 1;
 		} else {
 			//Did we show all lines in script?
