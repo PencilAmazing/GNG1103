@@ -2,11 +2,16 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 
+/* TextTypewriter my beloved*/
 public class TextTypewriter : MonoBehaviour
 {
+	[field: Header("TextTypewriter my beloved child <3")]
+	[field: Min(0.01f)]
 	[field: SerializeField]
 	public float SecondsDelay { get; set; }
-	[field: SerializeField]
+	[Min(0.01f)]
+	public float AlternateSecondsDelay;
+	[field: SerializeField] // DO NOT UNPROPERTIFY ANY PROPERTIES WILL DELETE ALL PREV SETTINGS WHYYYYY
 	public TextMeshProUGUI TextGUI { get; set; }
 
 	public Canvas FullUICanvas;
@@ -36,7 +41,7 @@ public class TextTypewriter : MonoBehaviour
 		// Replace dialog reference
 		if (TypewriterLanguageSettings.IsAlternate()) {
 			DialogueScript = AlternateDialogueScript;
-			
+
 		}
 	}
 
@@ -64,12 +69,13 @@ public class TextTypewriter : MonoBehaviour
 		DialogIndex = (DialogIndex + 1) % script.Length;
 		StopAllCoroutines(); // Cancel last run
 		IsDone = false;
-		StartCoroutine(TypeWriterCoroutine(TextGUI, finalString, SecondsDelay));
+		var delay = TypewriterLanguageSettings.IsAlternate() ? AlternateSecondsDelay : SecondsDelay;
+		StartCoroutine(TypeWriterCoroutine(TextGUI, finalString, delay));
 	}
 
 	public void SetCanvasActive(bool active)
 	{
-		if(FullUICanvas) {
+		if (FullUICanvas) {
 			FullUICanvas.enabled = active;
 		} else {
 			Debug.Log("Subtitle canvas is null, cannot change activity");
