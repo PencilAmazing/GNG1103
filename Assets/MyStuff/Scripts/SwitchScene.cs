@@ -60,6 +60,7 @@ public class SwitchScene : MonoBehaviour
 
 	public void FadeSpriteInAndSwitchScene(string SceneName)
 	{
+        Debug.Log("Begin scene transition");
 		StartCoroutine(FadeSpriteIn(SceneName));
 	}
 }

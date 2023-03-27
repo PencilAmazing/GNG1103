@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.13040084, g: 0.09601555, b: 0.06181498, a: 1}
+  m_IndirectSpecularColor: {r: 0.13040188, g: 0.09601609, b: 0.061815403, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2310,6 +2310,7 @@ MonoBehaviour:
     m_Signals:
     - {fileID: 11400000, guid: 682e7c9f25338d346b3b21777637edbb, type: 2}
     - {fileID: 11400000, guid: 90fdd68661b4ce8418f17ca179fd9ebf, type: 2}
+    - {fileID: 11400000, guid: a0b51187989bf73468e81206c9f90619, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -2349,6 +2350,20 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1271143589}
+          m_TargetAssemblyTypeName: SwitchScene, Assembly-CSharp
+          m_MethodName: FadeSpriteInAndSwitchScene
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: CityScene
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!1 &541810160
@@ -3369,7 +3384,7 @@ Transform:
   m_GameObject: {fileID: 927901473}
   m_LocalRotation: {x: -0, y: 0.9999122, z: -0, w: 0.013255628}
   m_LocalPosition: {x: -7.0464463, y: 0.17799997, z: 51.29172}
-  m_LocalScale: {x: 0.2775007, y: 1, z: 0.3484537}
+  m_LocalScale: {x: 0.3513159, y: 1, z: 0.3484537}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -3923,6 +3938,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <SecondsDelay>k__BackingField: 0.1
+  AlternateSecondsDelay: 0
   <TextGUI>k__BackingField: {fileID: 2007286298}
   FullUICanvas: {fileID: 468455256}
   DialogueScript:

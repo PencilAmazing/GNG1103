@@ -5,7 +5,7 @@ using UnityEngine.Playables;
 /* This is only for the message scene, don't put this anywhere else */
 public class CanvasCycler : MonoBehaviour
 {
-	[Header("This is only for the message scene, don't put this anywhere else. This must be three, please")]
+    [Header("This is only for the message scene, don't put this anywhere else. This must be three, please")]
 	public GameObject[] CycleObjects;
 	public TextTypewriter Typewriter;
 	public PlayableDirector EnglishAudioDirector;
@@ -76,7 +76,7 @@ public class CanvasCycler : MonoBehaviour
 			return;
 		} else if (index < Typewriter.DialogueScript.Length) {
 			// We still have more lines to show
-			if (Typewriter.IsDone && IsAudioDone()) {
+			if ((Typewriter.IsDone && IsAudioDone())) {
 				ResumeAudio();
 				Typewriter.NextLine();
 				index += 1;
@@ -84,7 +84,8 @@ public class CanvasCycler : MonoBehaviour
 		} else if (index == Typewriter.DialogueScript.Length) {
 			// show last screen
 			DisableAllExcept(2);
-			ResumeAudio(); // Play last audio track
+			//ResumeAudio(); // Play last audio track
+            // Or not
 			index += 1;
 		} else {
 			//Did we show all lines in script?

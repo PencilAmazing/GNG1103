@@ -276,7 +276,7 @@ MonoBehaviour:
     m_PreExtrapolationMode: 0
     m_PostExtrapolationTime: 0
     m_PreExtrapolationTime: 0
-    m_DisplayName: ENG1
+    m_DisplayName: Welcome
   - m_Version: 1
     m_Start: 7.274666666666667
     m_ClipIn: 0
@@ -345,7 +345,7 @@ MonoBehaviour:
     m_PreExtrapolationMode: 0
     m_PostExtrapolationTime: 0
     m_PreExtrapolationTime: 0
-    m_DisplayName: ENG2
+    m_DisplayName: Teach Controls
   - m_Version: 1
     m_Start: 19.114666666666665
     m_ClipIn: 0
@@ -396,7 +396,7 @@ MonoBehaviour:
     m_PreExtrapolationMode: 0
     m_PostExtrapolationTime: 0
     m_PreExtrapolationTime: 0
-    m_DisplayName: ENG3
+    m_DisplayName: Sensory data
   - m_Version: 1
     m_Start: 29.269333333333332
     m_ClipIn: 0
@@ -429,7 +429,7 @@ MonoBehaviour:
     m_PreExtrapolationMode: 0
     m_PostExtrapolationTime: 0
     m_PreExtrapolationTime: 0
-    m_DisplayName: ENG4
+    m_DisplayName: Beyond Control
   - m_Version: 1
     m_Start: 42.26133333333333
     m_ClipIn: 0
@@ -462,7 +462,7 @@ MonoBehaviour:
     m_PreExtrapolationMode: 0
     m_PostExtrapolationTime: 0
     m_PreExtrapolationTime: 0
-    m_DisplayName: ENG5
+    m_DisplayName: International Law
   - m_Version: 1
     m_Start: 56.85333333333333
     m_ClipIn: 0
@@ -513,7 +513,7 @@ MonoBehaviour:
     m_PreExtrapolationMode: 0
     m_PostExtrapolationTime: 0
     m_PreExtrapolationTime: 0
-    m_DisplayName: ENG6
+    m_DisplayName: Citizens being harmed
   m_Markers:
     m_Objects: []
   m_TrackProperties:
