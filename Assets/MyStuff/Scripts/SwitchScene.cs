@@ -46,7 +46,7 @@ public class SwitchScene : MonoBehaviour
 	{
 		Color col = new Color(0, 0, 0, 0);
 		float time = 0;
-		while (time < FadeDurationSeconds) {
+		while (FadeSprite != null && time < FadeDurationSeconds) {
 			time += Time.deltaTime;
 			col.a = Mathf.Clamp01(time / FadeDurationSeconds);
 			FadeSprite.color = col;
@@ -60,7 +60,7 @@ public class SwitchScene : MonoBehaviour
 
 	public void FadeSpriteInAndSwitchScene(string SceneName)
 	{
-        Debug.Log("Begin scene transition");
+		Debug.Log("Begin scene transition");
 		StartCoroutine(FadeSpriteIn(SceneName));
 	}
 }
