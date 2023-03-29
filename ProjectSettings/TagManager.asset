@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Door
+  - projectile
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX
@@ -38,6 +41,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: UI
+    uniqueID: 822191693
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

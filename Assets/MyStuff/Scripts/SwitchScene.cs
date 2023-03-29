@@ -8,6 +8,7 @@ public static class InterSceneInfo
 	/// Do we have to fade out on scene start?
 	/// </summary>
 	public static bool CompleteTransition = true;
+	public static bool FinishedCinemaScene = false;
 }
 
 
@@ -47,6 +48,7 @@ public class SwitchScene : MonoBehaviour
 		Color col = new Color(0, 0, 0, 0);
 		float time = 0;
 		while (FadeSprite != null && time < FadeDurationSeconds) {
+            FadeSprite.gameObject.SetActive(true);
 			time += Time.deltaTime;
 			col.a = Mathf.Clamp01(time / FadeDurationSeconds);
 			FadeSprite.color = col;
